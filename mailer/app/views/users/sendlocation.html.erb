@@ -1,0 +1,12 @@
+
+
+<%= form_tag sendloc_path({}) do |form| %>
+<div class="field">
+  <%= label_tag(:location, "Location") %><br />
+  <%= text_field_tag(:location) %>
+</div>
+
+  <p>
+    <div><%= submit_tag 'Send Mail' %></div>
+  </p>
+<% end %>

@@ -1,0 +1,21 @@
+Email to all the Users 
+
+<%= form_tag sendmail_path({}) do |form| %>
+<div class="field">
+  <%= label_tag(:q, "Subject") %><br />
+  <%= text_field_tag(:q) %>
+</div>
+
+<br>
+<div class="field">
+  <%= label_tag(:p, "Body") %><br />
+  <div class="area">
+    <%= text_area_tag :p, nil,  size: "25x10" %>
+  </div>
+
+</div>
+
+  <p>
+    <div><%= submit_tag 'Send Mail' %></div>
+  </p>
+<% end %>
