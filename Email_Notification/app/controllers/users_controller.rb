@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
+
+
   def index
     @users=User.all
   end
-  def mail
 
+
+  def mail
+    if(params[:user_ids] && !params[:user_ids].empty?)
     user_ids = params[:user_ids].map{ |k| k.to_i }
 
     i=0
@@ -19,12 +23,14 @@ before_action :authenticate_user!
               i=i+1
         end
       end
-
     end
   print $emails
+else
+  redirect_to index_path, notice: "No user selected"
+end
      #NotifMailer.new_notif.deliver_now
     #redirect_to index_path
-  end
+end
 
 
   def sendloc
