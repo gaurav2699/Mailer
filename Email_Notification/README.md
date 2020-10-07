@@ -7,6 +7,8 @@ Ruby Version: ruby 2.6.1
 - gem 'bulma-rails', '~> 0.6.1'
 # Complete steps to run the project
 1. First clone the repository to your desired location
+2. Go to config/database.yml and change the username and password to your respective MySQL username and password
+3. Set up environment variable for GMAIL_USERNAME and GMAIL_PASSWORD in your bash file from which you want to send the mail from.
 2. Run the following commands in you teminal:
 ```
 bundle install
