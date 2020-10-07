@@ -6,7 +6,8 @@ before_action :authenticate_user!
     @users=User.all
   end
 
-
+#plucks out the the selected users in the checkbox and stores the emailid of the users in the email array,
+#which will be used for sending email to those users.
   def mail
     if(params[:user_ids] && !params[:user_ids].empty?)
     user_ids = params[:user_ids].map{ |k| k.to_i }
@@ -32,7 +33,7 @@ end
     #redirect_to index_path
 end
 
-
+# finds the email ids of the users based on the location
   def sendloc
     @location=params[:location].upcase
     $emails = []
@@ -46,12 +47,12 @@ end
     end
   end
 
-
+# every user's email is selected and stored in the email array
   def sendall
     $emails = User.all.pluck(:email)
   end
 
-
+# sends mail to the email ids stored in the email array
   def sendmail
     p=params[:p]
     q=params[:q]

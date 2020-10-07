@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
 registrations: 'registrations'
  }
+    #setting routes for each button created.
     match 'users/mail' => 'users#mail', :as => :mail, via: :post
     match 'users/sendall' => 'users#sendall', :as => :sendall, via: :get
     match 'users/sendloc' => 'users#sendloc', :as => :sendloc, via: :post
